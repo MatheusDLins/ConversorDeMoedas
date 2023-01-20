@@ -1,0 +1,15 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+header{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 18px;
+}
+
+.icon-menu{
+  font-size: 30px;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  color: green;
+  background-color: yellow;
+}

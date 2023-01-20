@@ -1,0 +1,12 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+footer{
+  background-image: url(../../../assets/footer/footer-background.jpg);
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 18px;
+}
+
+.bi{
+  color: #fff;
+}
+

@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar navbar-expand-lg bg-success navbar-expand-lg">
+  <nav id="menu_itens" class="navbar fixed-right navbar-expand-lg bg-success navbar-expand-lg">
     <div class="container-fluid col-11 m-auto">
       <a class="navbar-brand text-light" href="#">
         <i class="bi bi-cash-coin icon-menu align-text-top"></i>
@@ -11,19 +11,20 @@
       </button>
 
       <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
-        <ul class="navbar-nav nav-pills red">
+        <ul class="navbar-nav nav-pills">
           <li class="nav-item">
-            <a class="nav-link active" href="#">Listar Moedas</a>
+            <a routerLink="/listarMoedas" class="nav-link" href="#listarMoedas">Listar Moedas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Converter Moedas</a>
+            <a routerLink="/converterMoedas" class="nav-link" href="#converterMoedas">Converter Moedas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Histórico de conversões</a>
+            <a routerLink="/historicoDeConversoes" class="nav-link" href="#historicoDeConversoes">Histórico de conversões</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 </header>
+
 

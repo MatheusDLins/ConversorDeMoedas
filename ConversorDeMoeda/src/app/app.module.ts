@@ -10,8 +10,15 @@ import { FooterComponent } from './global/footer/footer.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTabsModule} from '@angular/material/tabs';
-import { MoedasListComponent } from './views/home/moedas-list/moedas-list.component';
-import { ListaDeMoedasComponent } from './views/lista-de-moedas/lista-de-moedas.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSortModule} from '@angular/material/sort';
+import {MatInputModule} from '@angular/material/input';
+import { ListaDeMoedasComponent } from './views/home/lista-de-moedas/lista-de-moedas.component';
+import { ConverterMoedasComponent } from './views/home/converter-moedas/converter-moedas.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,16 +26,23 @@ import { ListaDeMoedasComponent } from './views/lista-de-moedas/lista-de-moedas.
     HomeComponent,
     NavbarComponent,
     FooterComponent,
-    MoedasListComponent,
-    ListaDeMoedasComponent
+    ListaDeMoedasComponent,
+    ConverterMoedasComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
-    MatTabsModule
+    MatTabsModule,
+    MatCardModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatSortModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

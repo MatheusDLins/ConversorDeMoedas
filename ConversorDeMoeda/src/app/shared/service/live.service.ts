@@ -1,7 +1,7 @@
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { ResponseSymbol } from '../model/responseSymbol.model';
+
 
 @Injectable({
   providedIn: 'root'

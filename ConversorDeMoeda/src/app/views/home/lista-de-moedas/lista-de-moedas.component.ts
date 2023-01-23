@@ -15,12 +15,11 @@ export class ListaDeMoedasComponent implements AfterViewInit {
   dataSource: MatTableDataSource<simbolElement>;
 
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
-  @ViewChild(MatSort, { static: true }) sort!: MatSort;
 
   constructor(
     private moedaService: MoedasService
   ) {
-    // Assign the data to the data source for the table to render
+
     this.dataSource = new MatTableDataSource(ELEMENT_DATA);
   }
 
@@ -35,7 +34,6 @@ export class ListaDeMoedasComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
   }
 
   ngOnInit() {

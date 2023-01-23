@@ -5,13 +5,12 @@
 
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" matSort>
-    <!-- Name Column -->
+
     <ng-container matColumnDef="codigo">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>  Código </th>
       <td mat-cell *matCellDef="let row"> {{row.codigo}} </td>
     </ng-container>
 
-    <!-- Fruit Column -->
     <ng-container matColumnDef="descricao">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Descrição </th>
       <td mat-cell *matCellDef="let row"> {{row.descricao}} </td>

@@ -2,6 +2,7 @@ import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import { LiveService } from 'src/app/shared/service/live.service';
 
 @Component({
   selector: 'app-lista-de-moedas',
@@ -15,7 +16,9 @@ export class ListaDeMoedasComponent implements AfterViewInit {
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
 
-  constructor() {
+  constructor(
+    private liveService: LiveService
+  ) {
     // Create 100 users
     const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
 
@@ -26,6 +29,16 @@ export class ListaDeMoedasComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+  }
+
+  ngOnInit() {
+    this.liveService.getSymbols().subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (error)=> {
+        console.log(error)
+      })
   }
 
   applyFilter(event: Event) {
@@ -72,6 +85,8 @@ const FRUITS: string[] = [
   'pomegranate',
   'pineapple',
 ];
+console.log(FRUITS);
+
 const NAMES: string[] = [
   'Maia',
   'Asher',

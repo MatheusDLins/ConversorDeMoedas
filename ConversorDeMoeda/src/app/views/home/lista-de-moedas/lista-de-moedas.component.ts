@@ -1,11 +1,9 @@
-import { ChangeDetectorRef } from '@angular/core';
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { IMoedas } from 'src/app/shared/interface/Imoedas';
 import { ISimbolo } from 'src/app/shared/interface/ISimbolo';
-import { Symbols } from 'src/app/shared/models/symbols.model';
 import { MoedasService } from 'src/app/shared/service/moedas.service';
 
 @Component({
@@ -17,35 +15,32 @@ export class ListaDeMoedasComponent implements AfterViewInit {
   displayedColumns: string[] = ['code', 'description'];
   dataSource: MatTableDataSource<IMoedas>;
 
-  @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
-  tabelaTeste: IMoedas[] = [];
+  listaDeMoedas: IMoedas[] = [];
 
   constructor(
     public moedasService: MoedasService,
   ) {
-    this.dataSource = new MatTableDataSource(this.tabelaTeste);
   }
 
   ngOnInit() {
     this.getSimbolos();
   }
-
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   getSimbolos(){
     this.moedasService.getSymbolsWithFlag().subscribe((data:ISimbolo) => {
-
       var resultado =  Object.keys(data.symbols).map(function(moeda){
         let resul = data.symbols[moeda]
-
         return resul;
       })
-      //console.log(resultado);
-      this.tabelaTeste = resultado;
-      this.dataSource = new MatTableDataSource(this.tabelaTeste);
+      this.listaDeMoedas = resultado;
+      this.dataSource = new MatTableDataSource(this.listaDeMoedas);
+      this.dataSource.paginator = this.paginator;
 
     })
   }
@@ -59,58 +54,3 @@ export class ListaDeMoedasComponent implements AfterViewInit {
     }
   }
 }
-
-var ELEMENT_DATA: any[] = [
-  { code: 'USD1', description: 'United States Dollar'},
-  { code: 'PYG', description: 'Paraguayan Guarani'},
-  { code: 'BRL', description: 'Brazilian Real'},
-  { code: 'GNF',description: 'Guinean Franc'},
-  { code: 'JMD', description: 'Jamaican Dollar'},
-  { code: 'CNY', description: 'Chinese Yuan'},
-  { code: 'DJF', description: 'Djiboutian Franc'},
-  { code: 'JOD', description: 'Jordanian Dinar'},
-  { code: 'FJD', description: 'Fijian Dollar'},
-  { code: 'AOA', description: 'Angolan Kwanza'},
-  { code: 'USD', description: 'United States Dollar'},
-  { code: 'PYG', description: 'Paraguayan Guarani'},
-  { code: 'BRL', description: 'Brazilian Real'},
-  { code: 'GNF',description: 'Guinean Franc'},
-  { code: 'JMD', description: 'Jamaican Dollar'},
-  { code: 'CNY', description: 'Chinese Yuan'},
-  { code: 'DJF', description: 'Djiboutian Franc'},
-  { code: 'JOD', description: 'Jordanian Dinar'},
-  { code: 'FJD', description: 'Fijian Dollar'},
-  { code: 'AOA', description: 'Angolan Kwanza'},
-  { code: 'USD', description: 'United States Dollar'},
-  { code: 'PYG', description: 'Paraguayan Guarani'},
-  { code: 'BRL', description: 'Brazilian Real'},
-  { code: 'GNF',description: 'Guinean Franc'},
-  { code: 'JMD', description: 'Jamaican Dollar'},
-  { code: 'CNY', description: 'Chinese Yuan'},
-  { code: 'DJF', description: 'Djiboutian Franc'},
-  { code: 'JOD', description: 'Jordanian Dinar'},
-  { code: 'FJD', description: 'Fijian Dollar'},
-  { code: 'AOA', description: 'Angolan Kwanza'},
-  { code: 'USD', description: 'United States Dollar'},
-  { code: 'PYG', description: 'Paraguayan Guarani'},
-  { code: 'BRL', description: 'Brazilian Real'},
-  { code: 'GNF',description: 'Guinean Franc'},
-  { code: 'JMD', description: 'Jamaican Dollar'},
-  { code: 'CNY', description: 'Chinese Yuan'},
-  { code: 'DJF', description: 'Djiboutian Franc'},
-  { code: 'JOD', description: 'Jordanian Dinar'},
-  { code: 'FJD', description: 'Fijian Dollar'},
-  { code: 'AOA', description: 'Angolan Kwanza'},
-  { code: 'USD', description: 'United States Dollar'},
-  { code: 'PYG', description: 'Paraguayan Guarani'},
-  { code: 'BRL', description: 'Brazilian Real'},
-  { code: 'GNF',description: 'Guinean Franc'},
-  { code: 'JMD', description: 'Jamaican Dollar'},
-  { code: 'CNY', description: 'Chinese Yuan'},
-  { code: 'DJF', description: 'Djiboutian Franc'},
-  { code: 'JOD', description: 'Jordanian Dinar'},
-  { code: 'FJD', description: 'Fijian Dollar'},
-  { code: 'AOA', description: 'Angolan Kwanza'},
-
-];
-

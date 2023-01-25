@@ -21,9 +21,5 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
-  <!-- <pagination-controls class="pagination" previousLabel="Anterior" nextLabel="Próximo"
-              (pageChange)="pag = $event">
-            </pagination-controls> -->
-
-  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [length]="this.tabelaTeste.length" [pageSize]="5" aria-label="Select page"></mat-paginator>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [length]="this.listaDeMoedas.length" aria-label="Select page"></mat-paginator>
 </div>

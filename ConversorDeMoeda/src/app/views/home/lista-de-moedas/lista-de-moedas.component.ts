@@ -1,7 +1,10 @@
+import { ChangeDetectorRef } from '@angular/core';
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import { IMoedas } from 'src/app/shared/interface/Imoedas';
+import { ISimbolo } from 'src/app/shared/interface/ISimbolo';
 import { Symbols } from 'src/app/shared/models/symbols.model';
 import { MoedasService } from 'src/app/shared/service/moedas.service';
 
@@ -11,34 +14,40 @@ import { MoedasService } from 'src/app/shared/service/moedas.service';
   styleUrls: ['./lista-de-moedas.component.css']
 })
 export class ListaDeMoedasComponent implements AfterViewInit {
-  displayedColumns: string[] = ['codigo', 'descricao'];
-  dataSource: MatTableDataSource<simbolElement>;
+  displayedColumns: string[] = ['code', 'description'];
+  dataSource: MatTableDataSource<IMoedas>;
 
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
 
-  moedasPrevious: Symbols[] = [];
+  tabelaTeste: IMoedas[] = [];
 
   constructor(
-    public moedasService: MoedasService
+    public moedasService: MoedasService,
   ) {
-
-    this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+    this.dataSource = new MatTableDataSource(this.tabelaTeste);
   }
 
-  getSimbolos(){
-    this.moedasService.getSymbolsWithFlag().subscribe(data => {
-      this.moedasPrevious = data.symbols;
-      console.log(this.moedasPrevious);
-
-    })
+  ngOnInit() {
+    this.getSimbolos();
   }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
 
-  ngOnInit() {
-    this.getSimbolos();
+  getSimbolos(){
+    this.moedasService.getSymbolsWithFlag().subscribe((data:ISimbolo) => {
+
+      var resultado =  Object.keys(data.symbols).map(function(moeda){
+        let resul = data.symbols[moeda]
+
+        return resul;
+      })
+      //console.log(resultado);
+      this.tabelaTeste = resultado;
+      this.dataSource = new MatTableDataSource(this.tabelaTeste);
+
+    })
   }
 
   applyFilter(event: Event) {
@@ -51,22 +60,57 @@ export class ListaDeMoedasComponent implements AfterViewInit {
   }
 }
 
-export interface simbolElement {
-  codigo: string;
-  descricao: string;
-}
+var ELEMENT_DATA: any[] = [
+  { code: 'USD1', description: 'United States Dollar'},
+  { code: 'PYG', description: 'Paraguayan Guarani'},
+  { code: 'BRL', description: 'Brazilian Real'},
+  { code: 'GNF',description: 'Guinean Franc'},
+  { code: 'JMD', description: 'Jamaican Dollar'},
+  { code: 'CNY', description: 'Chinese Yuan'},
+  { code: 'DJF', description: 'Djiboutian Franc'},
+  { code: 'JOD', description: 'Jordanian Dinar'},
+  { code: 'FJD', description: 'Fijian Dollar'},
+  { code: 'AOA', description: 'Angolan Kwanza'},
+  { code: 'USD', description: 'United States Dollar'},
+  { code: 'PYG', description: 'Paraguayan Guarani'},
+  { code: 'BRL', description: 'Brazilian Real'},
+  { code: 'GNF',description: 'Guinean Franc'},
+  { code: 'JMD', description: 'Jamaican Dollar'},
+  { code: 'CNY', description: 'Chinese Yuan'},
+  { code: 'DJF', description: 'Djiboutian Franc'},
+  { code: 'JOD', description: 'Jordanian Dinar'},
+  { code: 'FJD', description: 'Fijian Dollar'},
+  { code: 'AOA', description: 'Angolan Kwanza'},
+  { code: 'USD', description: 'United States Dollar'},
+  { code: 'PYG', description: 'Paraguayan Guarani'},
+  { code: 'BRL', description: 'Brazilian Real'},
+  { code: 'GNF',description: 'Guinean Franc'},
+  { code: 'JMD', description: 'Jamaican Dollar'},
+  { code: 'CNY', description: 'Chinese Yuan'},
+  { code: 'DJF', description: 'Djiboutian Franc'},
+  { code: 'JOD', description: 'Jordanian Dinar'},
+  { code: 'FJD', description: 'Fijian Dollar'},
+  { code: 'AOA', description: 'Angolan Kwanza'},
+  { code: 'USD', description: 'United States Dollar'},
+  { code: 'PYG', description: 'Paraguayan Guarani'},
+  { code: 'BRL', description: 'Brazilian Real'},
+  { code: 'GNF',description: 'Guinean Franc'},
+  { code: 'JMD', description: 'Jamaican Dollar'},
+  { code: 'CNY', description: 'Chinese Yuan'},
+  { code: 'DJF', description: 'Djiboutian Franc'},
+  { code: 'JOD', description: 'Jordanian Dinar'},
+  { code: 'FJD', description: 'Fijian Dollar'},
+  { code: 'AOA', description: 'Angolan Kwanza'},
+  { code: 'USD', description: 'United States Dollar'},
+  { code: 'PYG', description: 'Paraguayan Guarani'},
+  { code: 'BRL', description: 'Brazilian Real'},
+  { code: 'GNF',description: 'Guinean Franc'},
+  { code: 'JMD', description: 'Jamaican Dollar'},
+  { code: 'CNY', description: 'Chinese Yuan'},
+  { code: 'DJF', description: 'Djiboutian Franc'},
+  { code: 'JOD', description: 'Jordanian Dinar'},
+  { code: 'FJD', description: 'Fijian Dollar'},
+  { code: 'AOA', description: 'Angolan Kwanza'},
 
-var listaMoedas: [] = [];
-
-var ELEMENT_DATA: simbolElement[] = [
-  { codigo: 'USD', descricao: 'United States Dollar'},
-  { codigo: 'PYG', descricao: 'Paraguayan Guarani'},
-  { codigo: 'BRL', descricao: 'Brazilian Real'},
-  { codigo: 'GNF',descricao: 'Guinean Franc'},
-  { codigo: 'JMD', descricao: 'Jamaican Dollar'},
-  { codigo: 'CNY', descricao: 'Chinese Yuan'},
-  { codigo: 'DJF', descricao: 'Djiboutian Franc'},
-  { codigo: 'JOD', descricao: 'Jordanian Dinar'},
-  { codigo: 'FJD', descricao: 'Fijian Dollar'},
-  { codigo: 'AOA', descricao: 'Angolan Kwanza'},
 ];
+

@@ -19,6 +19,7 @@ import {MatInputModule} from '@angular/material/input';
 import { ListaDeMoedasComponent } from './views/home/lista-de-moedas/lista-de-moedas.component';
 import { ConverterMoedasComponent } from './views/home/converter-moedas/converter-moedas.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatPaginatorModule,
     MatFormFieldModule,
     MatSortModule,
-    MatInputModule
+    MatInputModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

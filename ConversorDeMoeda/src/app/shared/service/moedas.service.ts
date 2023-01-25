@@ -1,6 +1,7 @@
 import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
+import { ISimbolo } from '../interface/ISimbolo';
 import { ResponsePageable } from '../models/responsePageable.model';
 
 
@@ -15,8 +16,9 @@ export class MoedasService {
     private httpClient: HttpClient
   ) { }
 
-  public getSymbolsWithFlag(): Observable<ResponsePageable>{
-    return this.httpClient.get<ResponsePageable>(this.API_URL + '/symbols')
+  public getSymbolsWithFlag(): Observable<ISimbolo>{
+    return this.httpClient.get<ISimbolo>(this.API_URL + '/symbols')
   }
+
 
 }

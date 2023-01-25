@@ -2,7 +2,7 @@ import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
-import { LiveService } from 'src/app/shared/service/live.service';
+import { Symbols } from 'src/app/shared/models/symbols.model';
 import { MoedasService } from 'src/app/shared/service/moedas.service';
 
 @Component({
@@ -16,28 +16,29 @@ export class ListaDeMoedasComponent implements AfterViewInit {
 
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
 
+  moedasPrevious: Symbols[] = [];
+
   constructor(
-    private moedaService: MoedasService
+    public moedasService: MoedasService
   ) {
 
     this.dataSource = new MatTableDataSource(ELEMENT_DATA);
   }
 
-  obterTodosSimbolos(){
-    this.moedaService.obterTodos()
-      .then(moedas =>
-        console.log((moedas['symbols']))
-        )
-      .catch(error => console.error(error))
-  }
+  getSimbolos(){
+    this.moedasService.getSymbolsWithFlag().subscribe(data => {
+      this.moedasPrevious = data.symbols;
+      console.log(this.moedasPrevious);
 
+    })
+  }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
 
   ngOnInit() {
-    this.obterTodosSimbolos()
+    this.getSimbolos();
   }
 
   applyFilter(event: Event) {

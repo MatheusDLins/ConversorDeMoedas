@@ -1,6 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ISimbolo } from '../interface/ISimbolo';
+import { Observable } from 'rxjs/internal/Observable';
+import { ResponsePageable } from '../models/responsePageable.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +11,12 @@ export class MoedasService {
 
   API_URL = 'http://api.exchangerate.host';
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private httpClient: HttpClient
+  ) { }
 
-  obterTodos(){
-    return this.http.get<ISimbolo[]>(`${this.API_URL}/symbols`).toPromise()
+  public getSymbolsWithFlag(): Observable<ResponsePageable>{
+    return this.httpClient.get<ResponsePageable>(this.API_URL + '/symbols')
   }
+
 }

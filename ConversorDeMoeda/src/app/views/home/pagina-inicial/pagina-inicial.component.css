@@ -1,9 +1,27 @@
-.rotate-360 {
-  transform: rotate(360deg);
-  transition: transform 1s;
+.coin-img {
+  width: 100%;
+  height: auto;
+  margin: auto;
+  }
+
+.rotate {
+  animation: rotation 8s linear infinite;
 }
 
-img {
-  width: 10%;
-  height: 10%;
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.text-presentation {
+  font-family: Arial, sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  text-align: center;
+  padding: 2rem;
+  color: #333;
 }

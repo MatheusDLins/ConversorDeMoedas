@@ -11,4 +11,13 @@ footer, header{
   font-size: 18px;
 }
 
+body {
+  padding-top: 220px;
+}
 
+/*Para dispositivos com width maior ou igual a 768px*/
+@media (min-width: 768px) {
+ body {
+     padding-top: 70px;
+  }
+}

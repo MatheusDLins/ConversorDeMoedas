@@ -20,6 +20,8 @@ import { ListaDeMoedasComponent } from './views/home/lista-de-moedas/lista-de-mo
 import { ConverterMoedasComponent } from './views/home/converter-moedas/converter-moedas.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { PaginaInicialComponent } from './views/home/pagina-inicial/pagina-inicial.component';
+import { HistoricoConversoesComponent } from './views/home/historico-conversoes/historico-conversoes.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     NavbarComponent,
     FooterComponent,
     ListaDeMoedasComponent,
-    ConverterMoedasComponent
+    ConverterMoedasComponent,
+    PaginaInicialComponent,
+    HistoricoConversoesComponent
   ],
   imports: [
     HttpClientModule,

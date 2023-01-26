@@ -1,0 +1,9 @@
+.rotate-360 {
+  transform: rotate(360deg);
+  transition: transform 1s;
+}
+
+img {
+  width: 10%;
+  height: 10%;
+}

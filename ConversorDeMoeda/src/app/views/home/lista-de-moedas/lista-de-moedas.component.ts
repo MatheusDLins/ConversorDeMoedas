@@ -29,7 +29,7 @@ export class ListaDeMoedasComponent implements AfterViewInit {
     this.getSimbolos();
   }
   ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
+
   }
 
   getSimbolos(){
@@ -41,7 +41,7 @@ export class ListaDeMoedasComponent implements AfterViewInit {
       this.listaDeMoedas = resultado;
       this.dataSource = new MatTableDataSource(this.listaDeMoedas);
       this.dataSource.paginator = this.paginator;
-
+      this.dataSource.sort = this.sort;
     })
   }
 

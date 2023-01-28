@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +19,13 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSortModule} from '@angular/material/sort';
 import {MatInputModule} from '@angular/material/input';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatSelectModule} from '@angular/material/select';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
+
+
 import { ListaDeMoedasComponent } from './views/home/lista-de-moedas/lista-de-moedas.component';
 import { ConverterMoedasComponent } from './views/home/converter-moedas/converter-moedas.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -48,7 +58,11 @@ import { HistoricoConversoesComponent } from './views/home/historico-conversoes/
     MatFormFieldModule,
     MatSortModule,
     MatInputModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatTooltipModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

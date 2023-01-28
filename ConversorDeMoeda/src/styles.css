@@ -10,15 +10,3 @@ footer, header{
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 18px;
 }
-
-body {
-  padding-top: 220px;
-  background-color: #f0f8ff;
-}
-
-/*Para dispositivos com width maior ou igual a 768px*/
-@media (min-width: 768px) {
- body {
-     padding-top: 70px;
-  }
-}

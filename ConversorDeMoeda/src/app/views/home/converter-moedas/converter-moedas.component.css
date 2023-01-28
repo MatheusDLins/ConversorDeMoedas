@@ -1,13 +1,5 @@
-table {
-  width: 100%;
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
 }
-
-.mat-form-field {
-  font-size: 14px;
-  width: 100%;
-}
-
-td, th {
-  width: 25%;
-}
-

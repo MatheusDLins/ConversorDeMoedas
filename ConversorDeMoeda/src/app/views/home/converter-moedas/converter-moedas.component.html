@@ -1,20 +1,45 @@
-<div fxLayout="row" fxLayoutAlign="start center" style="padding: 2%">
-  <mat-card class="example-card"
-  fxFlex="0 1 calc(33.3% - 11px)"
-  fxFlex.lt-md="0 1 calc(50% - 11px)"
-  fxFlex.lt-sm="100%">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
-      </p>
-    </mat-card-content>
-  </mat-card>
-  <h1>aaaaaaaaaa</h1><h1>aaaaaaaaaa</h1><h1>aaaaaaaaaa</h1><h1>aaaaaaaaaa</h1><h1>aaaaaaaaaa</h1><h1>aaaaaaaaaa</h1><h1>aaaaaaaaaa</h1><h1>aaaaaaaaaa</h1>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <mat-form-field class="w-100">
+        <mat-label>Moeda de origem</mat-label>
+        <mat-select [(value)]="moedaOrigem">
+          <mat-option *ngFor="let currency of moedas" [value]="currency.code">
+            {{currency.code}} - {{currency.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-4">
+      <mat-form-field class="w-100">
+        <mat-label>Moeda de destino</mat-label>
+        <mat-select [(value)]="moedaDestino">
+          <mat-option *ngFor="let currency of moedas" [value]="currency.code">
+            {{currency.code}} - {{currency.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <mat-form-field class="w-100">
+        <mat-label>Valor a ser convertido</mat-label>
+        <input matInput [(ngModel)]="valor" type="number">
+      </mat-form-field>
+    </div>
+    <div class="col-md-4">
+      <mat-form-field class="w-100">
+        <mat-label>Resultado</mat-label>
+        <input matInput [(ngModel)]="resultado" type="number" disabled>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <button mat-raised-button color="primary" class="w-100 btn btn-dark btn-lg btn-block" (click)="converter()">Converter</button>
+    </div>
+  </div>
 </div>

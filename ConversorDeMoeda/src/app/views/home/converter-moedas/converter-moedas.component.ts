@@ -14,6 +14,7 @@ export class ConverterMoedasComponent implements OnInit {
   moedaDestino: string;
   valor: number;
   resultado: any;
+  taxa: any;
 
   constructor(private moedasService: MoedasService) {
     this.form = new FormGroup({
@@ -38,6 +39,10 @@ export class ConverterMoedasComponent implements OnInit {
     this.moedasService.converter(this.moedaOrigem, this.moedaDestino, this.valor)
     .subscribe(data => {
       this.resultado = data["result"];
+      this.taxa = Object.values(data["info"]);
+
     });
+
+
 }
 }

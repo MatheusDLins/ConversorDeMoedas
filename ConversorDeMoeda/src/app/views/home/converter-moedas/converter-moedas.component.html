@@ -35,8 +35,18 @@
         <input matInput [(ngModel)]="resultado" type="number" disabled>
       </mat-form-field>
     </div>
+    <div class="col-md-4">
+      <div matTooltip="O valor convertido é superior a 1000 dolares" *ngIf="resultado > 1000">
+        <i class="bi bi-cash-stack text-success"></i>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <mat-form-field class="w-100">
+        <mat-label>Taxa de Conversão</mat-label>
+        <input matInput [(ngModel)]="taxa" type="number" disabled>
+      </mat-form-field>
+    </div>
   </div>
-
   <div class="row justify-content-center">
     <div class="col-md-4">
       <button mat-raised-button color="primary" class="w-100 btn btn-dark btn-lg btn-block" (click)="converter()">Converter</button>

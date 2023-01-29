@@ -15,6 +15,7 @@ export class ConverterMoedasComponent implements OnInit {
   valor: number;
   resultado: any;
   taxa: any;
+  valorDolar: number;
 
   constructor(private moedasService: MoedasService) {
     this.form = new FormGroup({
@@ -40,9 +41,16 @@ export class ConverterMoedasComponent implements OnInit {
     .subscribe(data => {
       this.resultado = data["result"];
       this.taxa = Object.values(data["info"]);
-
+      this.conferir();
     });
+}
 
+conferir() {
+  this.moedasService.converter(this.moedaDestino, "USD", this.resultado)
+  .subscribe(data => {
+    this.valorDolar = data["result"];
+    console.log(this.valorDolar);
 
+  });
 }
 }

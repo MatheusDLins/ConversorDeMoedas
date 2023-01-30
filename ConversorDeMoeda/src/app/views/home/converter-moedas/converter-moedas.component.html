@@ -26,7 +26,10 @@
     <div class="col-md-4">
       <mat-form-field class="w-100">
         <mat-label>Valor a ser convertido</mat-label>
-        <input matInput [(ngModel)]="valor" type="number">
+        <input matInput [(ngModel)]="valor" type="number" pattern="^[0-9]+$" required #valorInput="ngModel">
+        <mat-error *ngIf="valorInput.invalid && valorInput.touched">
+          Valor inválido
+        </mat-error>
       </mat-form-field>
     </div>
     <div class="col-md-4">

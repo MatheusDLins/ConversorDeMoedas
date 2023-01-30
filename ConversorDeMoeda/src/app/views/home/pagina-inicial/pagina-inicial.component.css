@@ -2,7 +2,7 @@
   width: 100%;
   height: auto;
   margin: auto;
-  }
+}
 
 .rotate {
   animation: rotation 8s linear infinite;

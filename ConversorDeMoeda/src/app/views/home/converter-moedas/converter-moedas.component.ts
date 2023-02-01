@@ -3,9 +3,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { MoedasService } from 'src/app/shared/service/moedas.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 @Component({
   selector: 'app-converter-moedas',
   templateUrl: './converter-moedas.component.html',
@@ -32,8 +31,6 @@ export class ConverterMoedasComponent implements OnInit {
     });
   }
 
-
-
   // listar moedas
   ngOnInit() {
     this.carregarLocalStorage();
@@ -53,8 +50,6 @@ export class ConverterMoedasComponent implements OnInit {
         this.resultado = data['result'];
         this.taxa = Object.values(data['info']);
         this.conferir();
-        // this.enviarLocalStorage();
-        this.carregarLocalStorage();
       });
   }
 
@@ -67,11 +62,11 @@ export class ConverterMoedasComponent implements OnInit {
       });
   }
 
-  carregarLocalStorage(){
+  carregarLocalStorage() {
     this.conversions = JSON.parse(localStorage.getItem('conversions')) || [];
   }
 
-  enviarLocalStorage(){
+  enviarLocalStorage() {
     var date = new Date();
     var optionsDate: Intl.DateTimeFormatOptions = {
       year: 'numeric',
@@ -82,25 +77,26 @@ export class ConverterMoedasComponent implements OnInit {
     var optionsTime: Intl.DateTimeFormatOptions = {
       hour: '2-digit',
       minute: '2-digit',
-      second: '2-digit'
+      second: '2-digit',
     };
 
     this.date = date.toLocaleDateString('pt-BR', optionsDate);
     this.time = date.toLocaleTimeString('pt-BR', optionsTime);
 
     var conversion = {
-    date: this.date,
-    time: this.time,
+      date: this.date,
+      time: this.time,
       inputValue: this.valor,
       inputCurrency: this.moedaOrigem,
       outputValue: this.resultado,
       outputCurrency: this.moedaDestino,
       rate: this.taxa,
-      dolarValue: this.valorEmDolar
+      dolarValue: this.valorEmDolar,
     };
 
     this.conversions = JSON.parse(localStorage.getItem('conversions')) || [];
     this.conversions.push(conversion);
     localStorage.setItem('conversions', JSON.stringify(this.conversions));
+    this.carregarLocalStorage();
   }
 }

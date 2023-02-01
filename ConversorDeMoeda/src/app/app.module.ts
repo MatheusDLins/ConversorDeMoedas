@@ -21,6 +21,9 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatInputModule} from '@angular/material/input';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatCommonModule} from '@angular/material/core';
+
 import { ReactiveFormsModule } from '@angular/forms';
 
 
@@ -62,7 +65,9 @@ import { HistoricoConversoesComponent } from './views/home/historico-conversoes/
     MatTooltipModule,
     MatSelectModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    MatCommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

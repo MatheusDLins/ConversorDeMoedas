@@ -1,0 +1,11 @@
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h1 class="card-title" mat-dialog-title>Confirmação</h1>
+    <h3 class="card-subtitle mb-2 text-muted" mat-dialog-content>
+      Tem certeza que deseja excluir o elemento?</h3>
+    <div class="d-flex justify-content-around mt-3" mat-dialog-actions>
+      <button class="btn btn-secondary" mat-button (click)="cancelar()">Não</button>
+      <button class="btn btn-primary" mat-button (click)="dialogRef.close(true)" cdkFocusInitial>Sim</button>
+    </div>
+  </div>
+</div>

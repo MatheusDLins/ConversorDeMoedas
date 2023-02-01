@@ -1,5 +1,4 @@
 <div class="container-fluid">
-  <!-- Lista de moedas -->
   <div class="row justify-content-center">
     <div class="col-md-4">
       <mat-form-field class="w-100">
@@ -23,12 +22,11 @@
     </div>
   </div>
 
-  <!-- campo de valor, resultado e taxa de conversão -->
   <div class="row justify-content-center">
     <div class="col-md-4">
       <mat-form-field class="w-100">
         <mat-label>Valor a ser convertido</mat-label>
-        <input matInput [(ngModel)]="valor" type="number" pattern="^[1-9]+$" required #valorInput="ngModel">
+        <input matInput [(ngModel)]="valor" type="number" pattern="^[0-9]+$" required #valorInput="ngModel">
         <mat-error *ngIf="valorInput.invalid && valorInput.touched">
           Valor inválido
         </mat-error>
@@ -41,11 +39,6 @@
       </mat-form-field>
     </div>
     <div class="col-md-4">
-      <div matTooltip="O valor convertido é superior a 10000 dolares" *ngIf="valorDolar > 10000">
-        <i class="bi bi-cash-stack text-success"></i>
-      </div>
-    </div>
-    <div class="col-md-4">
       <mat-form-field class="w-100">
         <mat-label>Taxa de Conversão</mat-label>
         <input matInput [(ngModel)]="taxa" type="number" disabled>
@@ -53,7 +46,6 @@
     </div>
   </div>
 
-  <!-- botão converter -->
   <div class="row justify-content-center">
     <div class="col-md-4">
       <button mat-raised-button color="primary" class="w-100 btn btn-dark btn-lg btn-block"
@@ -61,3 +53,6 @@
     </div>
   </div>
 </div>
+
+
+

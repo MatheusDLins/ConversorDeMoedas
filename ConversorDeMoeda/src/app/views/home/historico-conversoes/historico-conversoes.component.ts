@@ -25,7 +25,7 @@ interface ConversionData {
   styleUrls: ['./historico-conversoes.component.css'],
 })
 export class HistoricoConversoesComponent implements OnInit {
-  constructor(private moedasService: MoedasService, public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog) {}
 
   displayedColumns: string[] = [
     'date',

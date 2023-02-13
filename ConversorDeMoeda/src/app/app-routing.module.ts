@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NavbarComponent } from './global/navbar/navbar.component';
-import { HomeComponent } from './views/home/home.component';
+import { ConverterMoedasComponent } from './views/home/converter-moedas/converter-moedas.component';
+import { HistoricoConversoesComponent } from './views/home/historico-conversoes/historico-conversoes.component';
+import { ListaDeMoedasComponent } from './views/home/lista-de-moedas/lista-de-moedas.component';
+import { PaginaInicialComponent } from './views/home/pagina-inicial/pagina-inicial.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: HomeComponent
-  },
-  {
-    path: 'menu', component: NavbarComponent
-  }
+  { path: '', component: PaginaInicialComponent },
+  { path: 'listar-moedas', component: ListaDeMoedasComponent },
+  { path: 'converter-moedas', component: ConverterMoedasComponent },
+  { path: 'historico-conversoes', component: HistoricoConversoesComponent },
 ];
 
 @NgModule({

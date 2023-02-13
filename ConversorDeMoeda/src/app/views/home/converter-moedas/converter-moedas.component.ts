@@ -50,7 +50,6 @@ export class ConverterMoedasComponent implements OnInit {
         this.resultado = data['result'];
         this.taxa = Object.values(data['info']);
         this.conferir();
-        this.carregarLocalStorage();
       });
   }
 
@@ -64,8 +63,7 @@ export class ConverterMoedasComponent implements OnInit {
   }
 
   carregarLocalStorage() {
-    // this.conversions = JSON.parse(localStorage.getItem('conversions')) || [];
-    
+     this.conversions = JSON.parse(localStorage.getItem('conversions')) || [];
   }
 
   enviarLocalStorage() {

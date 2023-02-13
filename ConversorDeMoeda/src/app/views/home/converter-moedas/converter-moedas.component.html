@@ -1,58 +1,59 @@
-<div class="container-fluid">
-  <div class="row justify-content-center">
-    <div class="col-md-4">
-      <mat-form-field class="w-100">
-        <mat-label>Moeda de origem</mat-label>
-        <mat-select [(value)]="moedaOrigem">
-          <mat-option *ngFor="let currency of moedas" [value]="currency.code">
-            {{currency.code}} - {{currency.name}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+<div class="container d-flex align-items-center h-100">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <mat-form-field class="w-100">
+          <mat-label>Moeda de origem</mat-label>
+          <mat-select [(value)]="moedaOrigem">
+            <mat-option *ngFor="let currency of moedas" [value]="currency.code">
+              {{currency.code}} - {{currency.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field class="w-100">
+          <mat-label>Moeda de destino</mat-label>
+          <mat-select [(value)]="moedaDestino">
+            <mat-option *ngFor="let currency of moedas" [value]="currency.code">
+              {{currency.code}} - {{currency.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
     </div>
-    <div class="col-md-4">
-      <mat-form-field class="w-100">
-        <mat-label>Moeda de destino</mat-label>
-        <mat-select [(value)]="moedaDestino">
-          <mat-option *ngFor="let currency of moedas" [value]="currency.code">
-            {{currency.code}} - {{currency.name}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-  </div>
 
-  <div class="row justify-content-center">
-    <div class="col-md-4">
-      <mat-form-field class="w-100">
-        <mat-label>Valor a ser convertido</mat-label>
-        <input matInput [(ngModel)]="valor" type="number" pattern="^[0-9]+$" required #valorInput="ngModel">
-        <mat-error *ngIf="valorInput.invalid && valorInput.touched">
-          Valor inválido
-        </mat-error>
-      </mat-form-field>
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <mat-form-field class="w-100">
+          <mat-label>Valor a ser convertido</mat-label>
+          <input matInput [(ngModel)]="valor" type="number" pattern="^[0-9]+$" required #valorInput="ngModel">
+          <mat-error *ngIf="valorInput.invalid && valorInput.touched">
+            Valor inválido
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field class="w-100">
+          <mat-label>Resultado</mat-label>
+          <input matInput [(ngModel)]="resultado" type="number" disabled>
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field class="w-100">
+          <mat-label>Taxa de Conversão</mat-label>
+          <input matInput [(ngModel)]="taxa" type="number" disabled>
+        </mat-form-field>
+      </div>
     </div>
-    <div class="col-md-4">
-      <mat-form-field class="w-100">
-        <mat-label>Resultado</mat-label>
-        <input matInput [(ngModel)]="resultado" type="number" disabled>
-      </mat-form-field>
-    </div>
-    <div class="col-md-4">
-      <mat-form-field class="w-100">
-        <mat-label>Taxa de Conversão</mat-label>
-        <input matInput [(ngModel)]="taxa" type="number" disabled>
-      </mat-form-field>
-    </div>
-  </div>
 
-  <div class="row justify-content-center">
-    <div class="col-md-4">
-      <button mat-raised-button color="primary" class="w-100 btn btn-dark btn-lg btn-block"
-        (click)="converter()">Converter</button>
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <button mat-raised-button color="primary" class="w-100 btn btn-dark btn-lg btn-block"
+          (click)="converter()">Converter</button>
+      </div>
     </div>
   </div>
 </div>
-
 
 

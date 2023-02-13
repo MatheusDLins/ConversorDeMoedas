@@ -2,7 +2,6 @@ import { ViewChild, Injectable } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { MoedasService } from 'src/app/shared/service/moedas.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 interface ConversionData {

@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { MoedasService } from './moedas.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-fdescribe('MoedasService', () => {
+describe('MoedasService', () => {
   let service: MoedasService;
   let httpMock: HttpTestingController;
 

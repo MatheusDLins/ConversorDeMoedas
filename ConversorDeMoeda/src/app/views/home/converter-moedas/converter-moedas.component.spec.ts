@@ -3,7 +3,7 @@ import { MoedasService } from 'src/app/shared/service/moedas.service';
 
 import { ConverterMoedasComponent } from './converter-moedas.component';
 
-fdescribe('ConverterMoedasComponent', () => {
+describe('ConverterMoedasComponent', () => {
   let converterMoedasComponent: ConverterMoedasComponent;
   let moedasService: MoedasService;
 

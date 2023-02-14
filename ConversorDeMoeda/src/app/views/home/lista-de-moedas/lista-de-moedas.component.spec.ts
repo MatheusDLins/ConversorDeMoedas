@@ -12,7 +12,7 @@ import { MoedasService } from 'src/app/shared/service/moedas.service';
 import { ListaDeMoedasComponent } from './lista-de-moedas.component';
 import { By } from '@angular/platform-browser';
 
-fdescribe('ListaDeMoedasComponent', () => {
+describe('ListaDeMoedasComponent', () => {
   let component: ListaDeMoedasComponent;
   let fixture: ComponentFixture<ListaDeMoedasComponent>;
   let httpMock: HttpTestingController;

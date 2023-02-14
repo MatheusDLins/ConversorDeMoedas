@@ -23,9 +23,6 @@ import {MatCommonModule} from '@angular/material/core';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
-
-
-
 import { ListaDeMoedasComponent } from './views/home/lista-de-moedas/lista-de-moedas.component';
 import { ConverterMoedasComponent } from './views/home/converter-moedas/converter-moedas.component';
 import { HttpClientModule } from '@angular/common/http';

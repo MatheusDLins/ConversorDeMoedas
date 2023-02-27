@@ -7,7 +7,7 @@ import { ISimbolo } from '../interface/ISimbolo';
   providedIn: 'root',
 })
 export class MoedasService {
-  API_URL = 'http://api.exchangerate.host';
+  API_URL = 'https://cors-anywhere.herokuapp.com/http://api.exchangerate.host';
 
   constructor(private http: HttpClient) {}
 

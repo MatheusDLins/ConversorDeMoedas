@@ -7,6 +7,7 @@ import { PaginaInicialComponent } from './views/home/pagina-inicial/pagina-inici
 
 const routes: Routes = [
   { path: '', component: PaginaInicialComponent },
+  { path: 'pagina-inicial', component: PaginaInicialComponent },
   { path: 'listar-moedas', component: ListaDeMoedasComponent },
   { path: 'converter-moedas', component: ConverterMoedasComponent },
   { path: 'historico-conversoes', component: HistoricoConversoesComponent },
